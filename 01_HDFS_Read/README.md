@@ -22,7 +22,7 @@ This will test a read from HDFS.
 
 - From SDC:
 
-  - Import pipeline p900_TEST_01_HDFS Read.json
+  - Import pipeline p900_TEST_01_HDFS_Read.json
   - Configure pipeline
     - Hadoop FS Standalone
       - General
