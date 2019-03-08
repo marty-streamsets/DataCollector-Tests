@@ -24,6 +24,8 @@ This will test a read from HDFS.
 
   - Import pipeline p900_TEST_01_HDFS_Read.json
   - Configure pipeline
+    - Error Records
+      - "Error Records" to Discard
     - Hadoop FS Standalone
       - General
         - "Stage Library" to correct version
