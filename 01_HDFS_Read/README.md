@@ -1,14 +1,10 @@
 # 01_HDFS_Read
 
-#### Description
-
-------
+## Description
 
 This will test a read from HDFS.
 
-#### Instructions
-
-------
+## Instructions
 
 - From Hadoop Node OS:
 
@@ -26,8 +22,17 @@ This will test a read from HDFS.
 
 - From SDC:
 
-  - Import pipeline
+  - Import pipeline p900_TEST_01_HDFS Read.json
   - Configure pipeline
-
-
-
+    - Hadoop FS Standalone
+      - General
+        - "Stage Library" to correct version
+      - Hadoop FS
+        - "Hadoop FS Configuration Directory" to /var/lib/sdc-resources/hadoop-conf
+      - Files
+        - "Files Directory" to /data/taxidata
+        - "File Name Pattern" to *.csv
+      - Data Format
+        - "Data Format" to Delimited
+        - "Header Line" with Header Line
+  - Validate/Preview/Run
