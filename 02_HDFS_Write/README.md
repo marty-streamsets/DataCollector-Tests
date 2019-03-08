@@ -27,11 +27,11 @@ This will test a write to HDFS.
           - KeyField	INTEGER
           - DataField	STRING
         - "Root Field Type" to LIST_MAP 
+    - Hadoop FS
+      - General
+        - "Stage Library" to correct version
       - Hadoop FS
-        - General
-          - "Stage Library" to correct version
-        - Hadoop FS
-          - "Hadoop FS Configuration Directory" to /var/lib/sdc-resources/hadoop-conf
+        - "Hadoop FS Configuration Directory" to /var/lib/sdc-resources/hadoop-conf
       - Output Files
         - "Files Prefix" to <blank>
         - "Directory Template" to /data/taxidata/output
