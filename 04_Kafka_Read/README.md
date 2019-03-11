@@ -7,7 +7,7 @@ This will test a read from Kafka.
 ## Instructions
 
 - From SDC:
-  - Import pipeline p900_TEST_03_Kafka_Read.json
+  - Import pipeline p900_TEST_04_Kafka_Read.json
   - Configure pipeline
     - Error Records
       - "Error Records" to Discard
