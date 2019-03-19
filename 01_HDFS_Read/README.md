@@ -22,18 +22,17 @@ This will test a read from HDFS.
 
 - From SDC:
 
-  - Import pipeline p900_TEST_01_HDFS_Read.json
+  - Import pipeline p900_TEST_01_HDFS Read.json
   - Configure pipeline
     - Error Records
       - "Error Records" to Discard
+    - Parameters
+      - HADOOP_FS_CONF_DIRECTORY to "/var/lib/sdc-resources/hadoop-conf"
+      - FILES_DIRECTORY to "/data/taxidata"
+      - FILE_NAME_PATTERN to "*.csv"
     - Hadoop FS Standalone
       - General
         - "Stage Library" to correct version
-      - Hadoop FS
-        - "Hadoop FS Configuration Directory" to /var/lib/sdc-resources/hadoop-conf
-      - Files
-        - "Files Directory" to /data/taxidata
-        - "File Name Pattern" to *.csv
       - Data Format
         - "Data Format" to Delimited
         - "Header Line" with Header Line
