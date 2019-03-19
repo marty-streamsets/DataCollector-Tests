@@ -1,4 +1,4 @@
-# 02_HDFS_Write
+# 01_HDFS_Write
 
 ## Description
 
@@ -18,24 +18,37 @@ This will test a write to HDFS.
 - From SDC:
 
   - Import pipeline p900_TEST_02_HDFS_Write.json
+
   - Configure pipeline
+
     - Error Records
+
       - "Error Records" to Discard
+
+    - Parameters
+
+      - HADOOP_FS_CONF_DIRECTORY to "/var/lib/sdc-resources/hadoop-conf"
+      - FILES_PREFIX <blank>
+      - DIRECTORY_TEMPLATE to "/data/taxidata/output"
+
     - Dev Data Generator
+
       - Data Generator
+
         - "Fields to Generate"
           - KeyField	INTEGER
           - DataField	STRING
         - "Root Field Type" to LIST_MAP 
-    - Hadoop FS
-      - General
-        - "Stage Library" to correct version
+
       - Hadoop FS
-        - "Hadoop FS Configuration Directory" to /var/lib/sdc-resources/hadoop-conf
-      - Output Files
-        - "Files Prefix" to <blank>
-        - "Directory Template" to /data/taxidata/output
+
+        - General
+          - "Stage Library" to correct version
+
       - Data Format
+
         - "Data Format" to Delimited
+
         - "Header Line" with Header Line
+
   - Validate/Preview/Run
