@@ -5,7 +5,7 @@
     "pipelineId" : "p900TEST02HDFSWrite7e537f6a-e07a-417d-b7fe-c06b0678dac8",
     "title" : "p900_TEST_02_HDFS_Write",
     "description" : "",
-    "uuid" : "4111be0d-6a86-44a9-bc98-a0abb27e49e4",
+    "uuid" : "14dc49c8-30a8-4f33-94df-67888fa9d720",
     "configuration" : [ {
       "name" : "executionMode",
       "value" : "STANDALONE"
@@ -44,7 +44,16 @@
       "value" : [ ]
     }, {
       "name" : "constants",
-      "value" : [ ]
+      "value" : [ {
+        "key" : "HADOOP_FS_CONF_DIRECTORY",
+        "value" : "/var/lib/sdc-resources/hadoop-conf"
+      }, {
+        "key" : "FILES_PREFIX",
+        "value" : ""
+      }, {
+        "key" : "DIRECTORY_TEMPLATE",
+        "value" : "/data/taxidata/output"
+      } ]
     }, {
       "name" : "badRecordsHandling",
       "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
@@ -234,7 +243,7 @@
       "stageVersion" : "4",
       "configuration" : [ {
         "name" : "hdfsTargetConfigBean.uniquePrefix",
-        "value" : ""
+        "value" : "${FILES_PREFIX}"
       }, {
         "name" : "hdfsTargetConfigBean.fileNameSuffix",
         "value" : null
@@ -243,7 +252,7 @@
         "value" : false
       }, {
         "name" : "hdfsTargetConfigBean.dirPathTemplate",
-        "value" : "/data/taxidata/output"
+        "value" : "${DIRECTORY_TEMPLATE}"
       }, {
         "name" : "hdfsTargetConfigBean.timeZoneID",
         "value" : "UTC"
@@ -411,7 +420,7 @@
         "value" : false
       }, {
         "name" : "hdfsTargetConfigBean.hdfsConfDir",
-        "value" : "/var/lib/sdc-resources/hadoop-conf"
+        "value" : "${HADOOP_FS_CONF_DIRECTORY}"
       }, {
         "name" : "hdfsTargetConfigBean.hdfsConfigs",
         "value" : [ { } ]
@@ -460,11 +469,11 @@
       "title" : "p900_TEST_02_HDFS_Write",
       "description" : "",
       "created" : 1552062047558,
-      "lastModified" : 1552069059680,
+      "lastModified" : 1553019215574,
       "creator" : "marty@marty-ss",
       "lastModifier" : "marty@marty-ss",
       "lastRev" : "0",
-      "uuid" : "4111be0d-6a86-44a9-bc98-a0abb27e49e4",
+      "uuid" : "14dc49c8-30a8-4f33-94df-67888fa9d720",
       "valid" : true,
       "metadata" : {
         "labels" : [ "TEST" ]
@@ -842,8 +851,8 @@
       "name" : "webhookConfigs",
       "value" : [ ]
     } ],
-    "configIssues" : [ ],
-    "ruleIssues" : [ ]
+    "ruleIssues" : [ ],
+    "configIssues" : [ ]
   },
   "libraryDefinitions" : null
 }
