@@ -2,10 +2,10 @@
   "pipelineConfig" : {
     "schemaVersion" : 6,
     "version" : 11,
-    "pipelineId" : "p900TESTKafkaWritea27cc287-4ee1-4527-83cb-31306cd844c1",
+    "pipelineId" : "p900TEST03KafkaWrite297dc454-7307-4b19-9578-9d8129144f5e",
     "title" : "p900_TEST_03_Kafka_Write",
     "description" : "",
-    "uuid" : "f88686c4-834d-44ec-9cfd-8e7a5c6e75d1",
+    "uuid" : "447e41ba-1c45-40b1-b08f-c9993e7b15ad",
     "configuration" : [ {
       "name" : "executionMode",
       "value" : "STANDALONE"
@@ -44,7 +44,13 @@
       "value" : [ ]
     }, {
       "name" : "constants",
-      "value" : [ ]
+      "value" : [ {
+        "key" : "KAFKA_BROKER_URI",
+        "value" : "marty-2:9092"
+      }, {
+        "key" : "TOPIC_NAME",
+        "value" : "TEST_Kafka"
+      } ]
     }, {
       "name" : "badRecordsHandling",
       "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
@@ -170,7 +176,7 @@
         "timeout" : 30000,
         "writeToDestinations" : false,
         "executeLifecycleEvents" : false,
-        "showHeader" : true,
+        "showHeader" : false,
         "showFieldType" : true,
         "rememberMe" : false
       }
@@ -189,7 +195,7 @@
           "scale" : 2,
           "field" : "KeyField"
         }, {
-          "type" : "NAME",
+          "type" : "STRING",
           "precision" : 10,
           "scale" : 2,
           "field" : "DataField"
@@ -202,7 +208,7 @@
         "value" : [ ]
       }, {
         "name" : "delay",
-        "value" : 3000
+        "value" : 1000
       }, {
         "name" : "batchSize",
         "value" : 1
@@ -219,12 +225,12 @@
       "uiInfo" : {
         "description" : "",
         "label" : "Dev Data Generator 1",
-        "xPos" : 62,
+        "xPos" : 60,
         "yPos" : 50,
         "stageType" : "SOURCE"
       },
       "inputLanes" : [ ],
-      "outputLanes" : [ "DevDataGenerator_01OutputLane15377946170850" ],
+      "outputLanes" : [ "DevDataGenerator_01OutputLane15530197279240" ],
       "eventLanes" : [ ],
       "services" : [ ]
     }, {
@@ -339,7 +345,7 @@
         "value" : null
       }, {
         "name" : "conf.metadataBrokerList",
-        "value" : "marty-2:9092"
+        "value" : "${KAFKA_BROKER_URI}"
       }, {
         "name" : "conf.runtimeTopicResolution",
         "value" : false
@@ -351,7 +357,7 @@
         "value" : "*"
       }, {
         "name" : "conf.topic",
-        "value" : "TEST_Kafka"
+        "value" : "${TOPIC_NAME}"
       }, {
         "name" : "conf.partitionStrategy",
         "value" : "ROUND_ROBIN"
@@ -371,6 +377,12 @@
         "name" : "conf.kafkaProducerConfigs",
         "value" : [ ]
       }, {
+        "name" : "responseConf.sendResponseToOrigin",
+        "value" : false
+      }, {
+        "name" : "responseConf.responseType",
+        "value" : "SUCCESS_RECORDS"
+      }, {
         "name" : "stageOnRecordError",
         "value" : "TO_ERROR"
       }, {
@@ -379,21 +391,15 @@
       }, {
         "name" : "stageRecordPreconditions",
         "value" : [ ]
-      }, {
-        "name" : "responseConf.sendResponseToOrigin",
-        "value" : false
-      }, {
-        "name" : "responseConf.responseType",
-        "value" : "SUCCESS_RECORDS"
       } ],
       "uiInfo" : {
         "description" : "",
         "label" : "Kafka Producer 1",
-        "xPos" : 279,
+        "xPos" : 280,
         "yPos" : 50,
         "stageType" : "TARGET"
       },
-      "inputLanes" : [ "DevDataGenerator_01OutputLane15377946170850" ],
+      "inputLanes" : [ "DevDataGenerator_01OutputLane15530197279240" ],
       "outputLanes" : [ ],
       "eventLanes" : [ ],
       "services" : [ ]
@@ -417,39 +423,25 @@
       "services" : [ ]
     },
     "info" : {
-      "pipelineId" : "p900TESTKafkaWritea27cc287-4ee1-4527-83cb-31306cd844c1",
+      "pipelineId" : "p900TEST03KafkaWrite297dc454-7307-4b19-9578-9d8129144f5e",
       "title" : "p900_TEST_03_Kafka_Write",
       "description" : "",
-      "created" : 1551393917226,
-      "lastModified" : 1552315819969,
+      "created" : 1553019682802,
+      "lastModified" : 1553020229376,
       "creator" : "marty@marty-ss",
       "lastModifier" : "marty@marty-ss",
       "lastRev" : "0",
-      "uuid" : "f88686c4-834d-44ec-9cfd-8e7a5c6e75d1",
+      "uuid" : "447e41ba-1c45-40b1-b08f-c9993e7b15ad",
       "valid" : true,
       "metadata" : {
-        "labels" : [ "TEST" ],
-        "dpm.base.url" : "http://localhost:18631",
-        "dpm.pipeline.id" : "455521f9-d858-4247-b08b-9b2162a9fbc1:marty-ss",
-        "dpm.pipeline.commit.id" : "99886497-25c1-4c58-9f4c-526398c7f9dc:marty-ss",
-        "dpm.pipeline.rules.id" : "07f5edd9-dd07-4b8a-93fb-6111483b51d7:marty-ss",
-        "dpm.pipeline.version" : "1",
-        "lastConfigId" : "aa50a85b-98c2-4542-a8d7-3b0f9b497ea6",
-        "lastRulesId" : "f2fbd0d9-202b-42e3-9573-0579774eaff3"
+        "labels" : [ ]
       },
-      "name" : "p900TESTKafkaWritea27cc287-4ee1-4527-83cb-31306cd844c1",
+      "name" : "p900TEST03KafkaWrite297dc454-7307-4b19-9578-9d8129144f5e",
       "sdcVersion" : "3.7.2",
       "sdcId" : "140cc2e0-3923-11e9-b0b1-6fd2bf9c351d"
     },
     "metadata" : {
-      "labels" : [ "TEST" ],
-      "dpm.base.url" : "http://localhost:18631",
-      "dpm.pipeline.id" : "455521f9-d858-4247-b08b-9b2162a9fbc1:marty-ss",
-      "dpm.pipeline.commit.id" : "99886497-25c1-4c58-9f4c-526398c7f9dc:marty-ss",
-      "dpm.pipeline.rules.id" : "07f5edd9-dd07-4b8a-93fb-6111483b51d7:marty-ss",
-      "dpm.pipeline.version" : "1",
-      "lastConfigId" : "aa50a85b-98c2-4542-a8d7-3b0f9b497ea6",
-      "lastRulesId" : "f2fbd0d9-202b-42e3-9573-0579774eaff3"
+      "labels" : [ ]
     },
     "statsAggregatorStage" : {
       "instanceName" : "statsAggregatorStageInstance",
@@ -475,7 +467,7 @@
       "uiInfo" : {
         "description" : "",
         "label" : "Start Event - Discard",
-        "xPos" : 280,
+        "xPos" : 60,
         "yPos" : 50,
         "stageType" : "TARGET"
       },
@@ -493,7 +485,7 @@
       "uiInfo" : {
         "description" : "",
         "label" : "Stop Event - Discard",
-        "xPos" : 280,
+        "xPos" : 60,
         "yPos" : 50,
         "stageType" : "TARGET"
       },
@@ -760,7 +752,7 @@
       "condition" : "${value() > 100}",
       "sendEmail" : false,
       "enabled" : false,
-      "timestamp" : 1537794537877,
+      "timestamp" : 1553019682830,
       "valid" : true
     }, {
       "id" : "stageErrorAlertID",
@@ -771,7 +763,7 @@
       "condition" : "${value() > 100}",
       "sendEmail" : false,
       "enabled" : false,
-      "timestamp" : 1537794537877,
+      "timestamp" : 1553019682830,
       "valid" : true
     }, {
       "id" : "idleGaugeID",
@@ -782,7 +774,7 @@
       "condition" : "${time:now() - value() > 120000}",
       "sendEmail" : false,
       "enabled" : false,
-      "timestamp" : 1537794537877,
+      "timestamp" : 1553019682830,
       "valid" : true
     }, {
       "id" : "batchTimeAlertID",
@@ -793,7 +785,7 @@
       "condition" : "${value() > 200}",
       "sendEmail" : false,
       "enabled" : false,
-      "timestamp" : 1537794537877,
+      "timestamp" : 1553019682830,
       "valid" : true
     }, {
       "id" : "memoryLimitAlertID",
@@ -804,12 +796,12 @@
       "condition" : "${value() > (jvm:maxMemoryMB() * 0.65)}",
       "sendEmail" : false,
       "enabled" : false,
-      "timestamp" : 1537794537877,
+      "timestamp" : 1553019682830,
       "valid" : true
     } ],
     "dataRuleDefinitions" : [ ],
     "driftRuleDefinitions" : [ ],
-    "uuid" : "e78af143-1a4c-41d9-b38a-05393e1de884",
+    "uuid" : "13426c18-9830-4286-a974-4e5208e863bd",
     "configuration" : [ {
       "name" : "emailIDs",
       "value" : [ ]
@@ -817,8 +809,8 @@
       "name" : "webhookConfigs",
       "value" : [ ]
     } ],
-    "configIssues" : [ ],
-    "ruleIssues" : [ ]
+    "ruleIssues" : [ ],
+    "configIssues" : [ ]
   },
   "libraryDefinitions" : null
 }
