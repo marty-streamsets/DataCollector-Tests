@@ -11,6 +11,9 @@ This will test a write to Kafka.
   - Configure pipeline
     - Error Records
       - "Error Records" to Discard
+    - Parameters
+      - KAFKA_BROKER_URI to <broker>:<port>
+      - TOPIC_NAME to "TEST_Kafka"
     - Dev Data Generator
       - Data Generator
         - "Fields to Generate"
@@ -21,9 +24,6 @@ This will test a write to Kafka.
     - Kafka Producer
       - General
         - "Stage Library" to correct version
-      - Kafka
-        - "Broker URI" to <broker>:<port>
-        - "Topic" to TEST_Kafka
       - Data Format
         - "Data Format" to JSON
   - Validate/Preview/Run
