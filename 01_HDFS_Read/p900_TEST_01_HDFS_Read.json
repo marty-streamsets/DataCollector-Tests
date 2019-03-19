@@ -5,7 +5,7 @@
     "pipelineId" : "p900TEST01HDFSRead6a468734-e8ac-45eb-a93b-3e03986fb87a",
     "title" : "p900_TEST_01_HDFS_Read",
     "description" : "",
-    "uuid" : "f6d24c92-5dc9-4db2-bdad-c40755e9d47d",
+    "uuid" : "99276d78-3c87-4955-8db2-e4097b85fe6d",
     "configuration" : [ {
       "name" : "executionMode",
       "value" : "STANDALONE"
@@ -44,7 +44,16 @@
       "value" : [ ]
     }, {
       "name" : "constants",
-      "value" : [ ]
+      "value" : [ {
+        "key" : "HADOOP_FS_CONF_DIRECTORY",
+        "value" : "/var/lib/sdc-resources/hadoop-conf"
+      }, {
+        "key" : "FILES_DIRECTORY",
+        "value" : "/data/taxidata"
+      }, {
+        "key" : "FILE_NAME_PATTERN",
+        "value" : "*.csv"
+      } ]
     }, {
       "name" : "badRecordsHandling",
       "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
@@ -216,7 +225,7 @@
         "value" : "CSV"
       }, {
         "name" : "conf.dataFormatConfig.csvHeader",
-        "value" : "NO_HEADER"
+        "value" : "WITH_HEADER"
       }, {
         "name" : "conf.dataFormatConfig.csvAllowExtraColumns",
         "value" : false
@@ -384,7 +393,7 @@
         "value" : "DELIMITED"
       }, {
         "name" : "conf.spoolDir",
-        "value" : "/data/taxidata"
+        "value" : "${FILES_DIRECTORY}"
       }, {
         "name" : "conf.numberOfThreads",
         "value" : 1
@@ -393,7 +402,7 @@
         "value" : "GLOB"
       }, {
         "name" : "conf.filePattern",
-        "value" : "*.csv"
+        "value" : "${FILE_NAME_PATTERN}"
       }, {
         "name" : "conf.useLastModified",
         "value" : "LEXICOGRAPHICAL"
@@ -441,7 +450,7 @@
         "value" : false
       }, {
         "name" : "hdfsConf.hdfsConfDir",
-        "value" : "/var/lib/sdc-resources/hadoop-conf"
+        "value" : "${HADOOP_FS_CONF_DIRECTORY}"
       }, {
         "name" : "hdfsConf.hdfsConfigs",
         "value" : [ { } ]
@@ -450,7 +459,7 @@
         "value" : "TO_ERROR"
       } ],
       "uiInfo" : {
-        "yPos" : 50,
+        "yPos" : 49,
         "stageType" : "SOURCE",
         "rawSource" : {
           "configuration" : [ {
@@ -506,21 +515,21 @@
       "title" : "p900_TEST_01_HDFS_Read",
       "description" : "",
       "created" : 1552057025662,
-      "lastModified" : 1552062878540,
+      "lastModified" : 1553018647996,
       "creator" : "marty@marty-ss",
       "lastModifier" : "marty@marty-ss",
       "lastRev" : "0",
-      "uuid" : "f6d24c92-5dc9-4db2-bdad-c40755e9d47d",
+      "uuid" : "99276d78-3c87-4955-8db2-e4097b85fe6d",
       "valid" : true,
       "metadata" : {
-        "labels" : [ ]
+        "labels" : [ "TEST" ]
       },
       "name" : "p900TEST01HDFSRead6a468734-e8ac-45eb-a93b-3e03986fb87a",
       "sdcVersion" : "3.7.2",
       "sdcId" : "140cc2e0-3923-11e9-b0b1-6fd2bf9c351d"
     },
     "metadata" : {
-      "labels" : [ ]
+      "labels" : [ "TEST" ]
     },
     "statsAggregatorStage" : {
       "instanceName" : "statsAggregatorStageInstance",
@@ -888,8 +897,8 @@
       "name" : "webhookConfigs",
       "value" : [ ]
     } ],
-    "configIssues" : [ ],
-    "ruleIssues" : [ ]
+    "ruleIssues" : [ ],
+    "configIssues" : [ ]
   },
   "libraryDefinitions" : null
 }
