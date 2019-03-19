@@ -24,6 +24,6 @@ This will test a write to JDBC (MySQL).
         - Use Credentials to "checked"
         - Table Name to "test_jdbc"
       - Credentials
-        - Username to <mysql username>
-        - Password to <mysql password>
+        - Username to <mysql_username>
+        - Password to <mysql_password>
   - Validate/Preview/Run
