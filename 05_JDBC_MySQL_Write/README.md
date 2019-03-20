@@ -6,11 +6,17 @@ This will test a write to JDBC (MySQL).
 
 ## Instructions
 
+- From MySQL
+  - If needed, execute "create_table.sql" to create the target table
 - From SDC:
   - Import pipeline p900_TEST_05_JDBC_MySQL_Write.json
   - Configure pipeline
-    - Error Records
-      - "Error Records" to Discard
+    - Pipeline
+      - Error Records
+        - "Error Records" to Discard
+      - Parameters
+        - JDBC_Connection_String to jdbc:mysql://marty-1:3306/demo
+        - Table_Name to test_jdbc
     - Dev Data Generator
       - Data Generator
         - "Fields to Generate"
@@ -20,10 +26,8 @@ This will test a write to JDBC (MySQL).
         - "Batch Size" to 1
     - JDBC Producer
       - JDBC
-        - JDBC Connection String to "Broker URI" to jdbc:mysql://marty-1:3306/demo
         - Use Credentials to "checked"
-        - Table Name to "test_jdbc"
       - Credentials
-        - Username to <mysql_username>
-        - Password to <mysql_password>
+        - Username to \<mysql-username>
+        - Password to ${runtime:loadResource("JDBCpassword.txt", true)}
   - Validate/Preview/Run
