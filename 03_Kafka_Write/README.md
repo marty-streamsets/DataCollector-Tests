@@ -12,7 +12,7 @@ This will test a write to Kafka.
     - Error Records
       - "Error Records" to Discard
     - Parameters
-      - KAFKA_BROKER_URI to <broker>:<port>
+      - KAFKA_BROKER_URI to <broker:port>
       - TOPIC_NAME to "TEST_Kafka"
     - Dev Data Generator
       - Data Generator
