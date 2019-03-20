@@ -12,8 +12,8 @@ This will test a read from Kafka.
     - Error Records
       - "Error Records" to Discard
     - Parameters
-      - KAFKA_BROKER to <host>:<port>
-      - KAFKA_ZOOKEEPER to <host>:<port>
+      - KAFKA_BROKER to \<host>:\<port>
+      - KAFKA_ZOOKEEPER to \<host>:\<port>
       - KAFKA_CONSUMER_GROUP to streamsetsDataCollector
       - KAFKA_TOPIC to TEST_Kafka
     - Kafka Consumer
