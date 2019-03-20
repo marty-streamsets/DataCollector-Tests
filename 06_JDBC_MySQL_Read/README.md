@@ -6,12 +6,12 @@ This will test a read from JDBC (MySQL).
 
 ## Instructions
 
-- From SDC:
+- **From SDC:**
   - Import pipeline *p900_TEST_06_JDBC_MySQL_Read.json*
   - Configure pipeline
     - Pipeline
       - Error Records
-        - "Error Records" to `Discard`
+        - Error Records to `Discard`
       - Parameters
         - JDBC_Connection_String to `jdbc:mysql://marty-1:3306/demo`
     - JDBC Query Consumer
