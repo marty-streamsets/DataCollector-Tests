@@ -5,7 +5,7 @@
     "pipelineId" : "p900TESTHiveJDBCWrite61177d8c-e3aa-4220-9b3d-2e992300540b",
     "title" : "p900_TEST_05_JDBC_MySQL_Write",
     "description" : "",
-    "uuid" : "c467287e-0da8-46fd-95da-ba55398dba7d",
+    "uuid" : "3495fd4a-3023-418a-b194-485a745bba16",
     "configuration" : [ {
       "name" : "executionMode",
       "value" : "STANDALONE"
@@ -44,7 +44,13 @@
       "value" : [ ]
     }, {
       "name" : "constants",
-      "value" : [ ]
+      "value" : [ {
+        "key" : "JDBC_Connection_String",
+        "value" : "jdbc:mysql://marty-1:3306/demo"
+      }, {
+        "key" : "Table_Name",
+        "value" : "test_jdbc"
+      } ]
     }, {
       "name" : "badRecordsHandling",
       "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
@@ -237,7 +243,7 @@
         "value" : ""
       }, {
         "name" : "tableNameTemplate",
-        "value" : "test_jdbc"
+        "value" : "${Table_Name}"
       }, {
         "name" : "columnNames",
         "value" : [ ]
@@ -267,7 +273,7 @@
         "value" : false
       }, {
         "name" : "hikariConfigBean.connectionString",
-        "value" : "jdbc:mysql://marty-1:3306/demo"
+        "value" : "${JDBC_Connection_String}"
       }, {
         "name" : "hikariConfigBean.useCredentials",
         "value" : true
@@ -276,7 +282,7 @@
         "value" : "root"
       }, {
         "name" : "hikariConfigBean.password",
-        "value" : "StreamSets"
+        "value" : "${runtime:loadResource(\"JDBCpassword.txt\", true)}"
       }, {
         "name" : "hikariConfigBean.driverProperties",
         "value" : [ { } ]
@@ -352,11 +358,11 @@
       "title" : "p900_TEST_05_JDBC_MySQL_Write",
       "description" : "",
       "created" : 1551393917774,
-      "lastModified" : 1553016117862,
+      "lastModified" : 1553106035441,
       "creator" : "marty@marty-ss",
       "lastModifier" : "marty@marty-ss",
       "lastRev" : "0",
-      "uuid" : "c467287e-0da8-46fd-95da-ba55398dba7d",
+      "uuid" : "3495fd4a-3023-418a-b194-485a745bba16",
       "valid" : true,
       "metadata" : {
         "labels" : [ "TEST" ]
