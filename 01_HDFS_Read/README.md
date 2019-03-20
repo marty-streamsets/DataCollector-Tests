@@ -6,7 +6,7 @@ This will test a read from HDFS.
 
 ## Instructions
 
-- From Hadoop Node OS:
+- **From Hadoop Node OS:**
 
   - Move the file: *nyc_taxi_data.csv* to HDFS (`/data/taxidata`)
 
@@ -20,16 +20,17 @@ This will test a read from HDFS.
 
     - Put the file in above directory using HUE or "`hdfs dfs -put`" command
 
-- From SDC:
+- **From SDC:**
 
   - Import pipeline *p900_TEST_01_HDFS Read.json*
   - Configure pipeline
-    - Error Records
-      - Error Records to `Discard`
-    - Parameters
-      - HADOOP_FS_CONF_DIRECTORY to `/var/lib/sdc-resources/hadoop-conf`
-      - FILES_DIRECTORY to `/data/taxidata`
-      - FILE_NAME_PATTERN to `*.csv`
+    - Pipeline
+      - Error Records
+        - Error Records to `Discard`
+      - Parameters
+        - HADOOP_FS_CONF_DIRECTORY to `/var/lib/sdc-resources/hadoop-conf`
+        - FILES_DIRECTORY to `/data/taxidata`
+        - FILE_NAME_PATTERN to `*.csv`
     - Hadoop FS Standalone
       - General
         - Stage Library to *correct version*
