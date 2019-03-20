@@ -5,7 +5,7 @@
     "pipelineId" : "p900TESTKafkaReadf1ff7e4d-3481-43bc-b141-2116863431da",
     "title" : "p900_TEST_04_Kafka_Read",
     "description" : "",
-    "uuid" : "7147eaa8-3cdf-41e6-ab1b-c6bdcaf64ce3",
+    "uuid" : "07538961-c2c5-4d77-9acd-490e76da5672",
     "configuration" : [ {
       "name" : "executionMode",
       "value" : "STANDALONE"
@@ -44,7 +44,19 @@
       "value" : [ ]
     }, {
       "name" : "constants",
-      "value" : [ ]
+      "value" : [ {
+        "key" : "KAFKA_BROKER",
+        "value" : "marty-2:9092"
+      }, {
+        "key" : "KAFKA_ZOOKEEPER",
+        "value" : "marty-2:2181"
+      }, {
+        "key" : "KAFKA_CONSUMER_GROUP",
+        "value" : "streamsetsDataCollector"
+      }, {
+        "key" : "KAFKA_TOPIC",
+        "value" : "TEST_Kafka"
+      } ]
     }, {
       "name" : "badRecordsHandling",
       "value" : "streamsets-datacollector-basic-lib::com_streamsets_pipeline_stage_destination_devnull_ToErrorNullDTarget::1"
@@ -387,16 +399,16 @@
         "value" : "JSON"
       }, {
         "name" : "kafkaConfigBean.metadataBrokerList",
-        "value" : "marty-2:9092"
+        "value" : "${KAFKA_BROKER}"
       }, {
         "name" : "kafkaConfigBean.zookeeperConnect",
-        "value" : "marty-2:2181"
+        "value" : "${KAFKA_ZOOKEEPER}"
       }, {
         "name" : "kafkaConfigBean.consumerGroup",
-        "value" : "streamsetsDataCollector"
+        "value" : "${KAFKA_CONSUMER_GROUP}"
       }, {
         "name" : "kafkaConfigBean.topic",
-        "value" : "TEST_Kafka"
+        "value" : "${KAFKA_TOPIC}"
       }, {
         "name" : "kafkaConfigBean.produceSingleRecordPerMessage",
         "value" : false
@@ -417,10 +429,7 @@
         "value" : "DEFAULT"
       }, {
         "name" : "kafkaConfigBean.kafkaConsumerConfigs",
-        "value" : [ {
-          "key" : "auto.offset.reset",
-          "value" : "earliest"
-        } ]
+        "value" : [ ]
       }, {
         "name" : "stageOnRecordError",
         "value" : "TO_ERROR"
@@ -504,11 +513,11 @@
       "title" : "p900_TEST_04_Kafka_Read",
       "description" : "",
       "created" : 1551393917540,
-      "lastModified" : 1552316849000,
+      "lastModified" : 1553102173903,
       "creator" : "marty@marty-ss",
       "lastModifier" : "marty@marty-ss",
       "lastRev" : "0",
-      "uuid" : "7147eaa8-3cdf-41e6-ab1b-c6bdcaf64ce3",
+      "uuid" : "07538961-c2c5-4d77-9acd-490e76da5672",
       "valid" : true,
       "metadata" : {
         "labels" : [ "TEST" ]
@@ -886,8 +895,8 @@
       "name" : "webhookConfigs",
       "value" : [ ]
     } ],
-    "configIssues" : [ ],
-    "ruleIssues" : [ ]
+    "ruleIssues" : [ ],
+    "configIssues" : [ ]
   },
   "libraryDefinitions" : null
 }
