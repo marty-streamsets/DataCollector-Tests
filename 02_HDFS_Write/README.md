@@ -23,7 +23,7 @@ This will test a write to HDFS.
       - Error Records to `Discard`
     - Parameters
       - HADOOP_FS_CONF_DIRECTORY to `/var/lib/sdc-resources/hadoop-conf`
-      - FILES_PREFIX <blank>
+      - FILES_PREFIX `<blank>`
       - DIRECTORY_TEMPLATE to `/data/taxidata/output`
     - Dev Data Generator
       - Data Generator
