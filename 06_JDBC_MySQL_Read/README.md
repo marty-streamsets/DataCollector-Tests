@@ -14,10 +14,10 @@ This will test a read from JDBC (MySQL).
         - Error Records to `Discard`
       - Parameters
         - JDBC_Connection_String to `jdbc:mysql://marty-1:3306/demo`
+        - SQL_Query to `select * from test_jdbc;`
     - JDBC Query Consumer
       - JDBC
         - Use Credential to `checked`
-        - SQL Query to `select * from test_jdbc`
       - Credentials
         - Username to `<mysql-username>`
         - Password to `${runtime:loadResource("JDBCpassword.txt", true)}`
